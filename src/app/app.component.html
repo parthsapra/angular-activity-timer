@@ -1,0 +1,23 @@
+<div class="container" *ngIf="isCliked" style="margin:1cm;">
+</div>
+<button class="btn btn-primary" (click)="startTimer()">Start your Task</button>
+<button class="btn btn-primary" style="margin:1cm;" (click)="pauseTimer()">Pause</button>
+{{minutes}}:{{seconds}}:{{milliseconds}}
+=======================================================
+<div class="container" *ngIf="isClickedStart" style="margin:1cm;">
+  Select Activity:
+	<label *ngFor="let activity of activities">
+  <input type="radio" name="options" (click)="model.option = activity" (click)="startActivity()">{{activity}}
+  <!-- [checked]="activity === model.option" -->
+</label><br>
+  {{activityMinutes}}:{{activitySeconds}}:{{activityMilliseconds}} for
+ {{model.option}}
+	<button class="btn btn-primary" style="margin:1cm;"[disabled]="!btnDisable" (click)="pauseActivityTimer()">End</button>
+	<div *ngFor="let al of activityLog">
+		{{al.Activity}}
+		time
+		{{al.Time}}
+	</div>
+</div>
+	<button class="btn btn-primary" style="margin:1cm;" (click)="reset()">Reset All</button>
+
